@@ -1,22 +1,12 @@
 import React, { Component } from "react";
 class Counter extends Component {
-  // styles = {
-  //   fontSize: 150,
-  //   fontWeigth: "bold"
-  // };
-
-  // constructor() {
-  //   super();
-  //   this.handleIncrement = this.handleIncrement.bind(this);
-  // }
-
-  // handleDecrement = () => {
-  //   this.setState({ value: this.state.value - 1 });
-  // };
-
   render() {
     return (
       <div>
+        <span style={{ fontSize: 20 }} className="badge badge-info">
+          {this.getItems()}
+        </span>
+
         <span style={{ fontSize: 20 }} className={this.getBadgeClasses()}>
           {this.formatCount()}
         </span>
@@ -54,7 +44,12 @@ class Counter extends Component {
 
   formatCount() {
     const { value } = this.props.counter;
-    return value === 0 ? value : value;
+    return value;
+  }
+
+  getItems() {
+    const { item } = this.props.counter;
+    return item;
   }
 }
 export default Counter;
