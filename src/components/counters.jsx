@@ -20,8 +20,9 @@ class Counters extends Component {
       onIncrement,
       onDecrement
     } = this.props;
+
     const { currentPage, pageSize } = this.state;
-    const countered = paginate(counters, currentPage, pageSize);
+    let countered = paginate(counters, currentPage, pageSize);
     return (
       <React.Fragment>
         <div>

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import NavBar from "./components/navbar";
 import "./App.css";
+import _ from "lodash";
 import Counters from "./components/counters";
 
 class App extends Component {
@@ -56,7 +57,10 @@ class App extends Component {
     return (
       <React.Fragment>
         <NavBar
-          totalCounters={this.state.counters.filter(c => c.value > 0).length}
+          totalCounters={_.map(this.state.counters, "value").reduce(
+            (a, b) => a + b,
+            0
+          )}
         />
         <main className="container">
           <Counters
